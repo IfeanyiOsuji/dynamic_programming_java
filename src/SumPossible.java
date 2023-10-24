@@ -3,12 +3,15 @@ package src;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AmountSum {
+public class SumPossible {
 
     public static boolean sumAmount(int a, int [] arr){ // using brute force
         
         if(a==0)
             return true;
+        if(a < 0){
+            return false;
+        }
         for(int i=0; i< arr.length; i++){
             int subAmount = a- arr[i];
             if(sumAmount(subAmount, arr)){
@@ -22,16 +25,22 @@ public class AmountSum {
 
          if(a==0)
             return true;
+        if(a < 0){
+            return false;
+        }
         if(memo.containsKey(a)){
             return memo.get(a);
         }
         for(int i=0; i< arr.length; i++){
             int subAmount = a- arr[i];
-           boolean result =  sumAmount(subAmount, arr);
-           return result;
+           if(sumAmount(subAmount, arr,memo)){
+            memo.put(a, true);
+           return true;
+           }
                     
                       
         }
+        memo.put(a, false);
         return false;
      }
      public static boolean subAmount1(int a, int [] arr){
