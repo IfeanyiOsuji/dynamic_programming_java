@@ -24,17 +24,17 @@ public class ParkingSystem {
         
         if(carType ==1 && this.big > 0){
             this.big --;
-            //System.out.println(carType);
+            
             return true;
         }
          if(carType ==2 && this.medium > 0){
             this.medium --;
-            //System.out.println(carType);
+            
             return true;
         }
          if(carType ==3 && this.small > 0){
             this.small --;
-            //System.out.println(carType);
+            
             return true;
         }
         return false;
