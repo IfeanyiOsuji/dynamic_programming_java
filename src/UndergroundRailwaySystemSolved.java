@@ -1,6 +1,8 @@
 package src;
 
 import java.util.HashMap;
+// An underground railway system is keeping track of customer travel times between different stations. They are using t
+// his data to calculate the average time it takes to travel from one station to another.
 
 public class UndergroundRailwaySystemSolved {
     class Pair{
