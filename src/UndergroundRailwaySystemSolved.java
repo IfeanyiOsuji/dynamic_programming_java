@@ -1,8 +1,10 @@
 package src;
 
 import java.util.HashMap;
+// An underground railway system is keeping track of customer travel times between different stations. They are using t
+// his data to calculate the average time it takes to travel from one station to another.
 
-public class UndergroundSystemSolved {
+public class UndergroundRailwaySystemSolved {
     class Pair{
         String start;
         String end;
@@ -24,7 +26,7 @@ public class UndergroundSystemSolved {
     }
     HashMap<Integer, Pair>hm;
     HashMap<Integer, AveragePair>stationMap;
-    public UndergroundSystemSolved(){
+    public UndergroundRailwaySystemSolved(){
         hm = new HashMap<>();
         stationMap = new HashMap<>();
     }
@@ -35,10 +37,10 @@ public class UndergroundSystemSolved {
       Pair pair = hm.remove(id);
       String startStation = pair.start;
       int startTime = pair.t;
-      int total = t - startTime;
+      int total = t - startTime; // endtime - starttime
       if(stationMap.containsKey(getHash(startStation, stationName))){
         AveragePair ap = stationMap.get(getHash(startStation, stationName)); 
-        int count = ap.count;
+        int count = ap.count+1;
         int time = ap.totalTime+total;
         stationMap.put(getHash(startStation, stationName), new AveragePair(count, time));
       }
