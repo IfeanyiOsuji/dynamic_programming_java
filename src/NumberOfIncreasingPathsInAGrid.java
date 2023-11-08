@@ -22,10 +22,11 @@ public class NumberOfIncreasingPathsInAGrid {
         // iterating through each cell in the grid;
         for(int i=0; i<n; i++){
             for(int j=0; j< m; j++){
-                ans = (ans + dfs(i, j, grid, dp))
+                ans = (ans + dfs(i, j, grid, dp)) % mod;
             }
 
         }
+        return ans;
 
     }
     private int dfs(int i, int j, int[][] grid, int[][] dp) {
@@ -36,9 +37,9 @@ public class NumberOfIncreasingPathsInAGrid {
             int count = 1;
             // moving through each direction
             for(int[] dir: direction){
-                int x = i+dir[0], y= dir[1];
+                int x = i+dir[0], y= j+dir[1];
                 //if the movement does not exceed the boundries of the grid and the next element is not less than the current element
-                if(x>=0 && y>=0 && x < grid.length && y< grid[0].length && dp[x][y] > dp[i][j] ){
+                if(x>=0 && y>=0 && x < grid.length && y< grid[0].length && grid[x][y] > grid[i][j] ){
                 count += (dfs(x, y, grid, dp)) % mod;
                 }
             }
@@ -46,7 +47,7 @@ public class NumberOfIncreasingPathsInAGrid {
     }
 
     public static void main(String[] args) {
-        
+        System.out.println(new NumberOfIncreasingPathsInAGrid().countParts(new int [][]{{1, 1}, {3, 4}}));
     }
     
 }
